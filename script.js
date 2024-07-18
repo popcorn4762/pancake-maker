@@ -6,5 +6,6 @@ function start() {
   console.log ('hi')
 }
 startButton.addEventListener("click",function(){
+console.log ('i')
 start()
 })
