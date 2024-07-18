@@ -1,0 +1,26 @@
+body {
+  background-color: rgb(155, 163, 193);
+}
+#title {
+  position:absolute;
+  width: 700px;
+  height: 600px;
+}
+#startButton {
+  background-color: transparent;
+  position:absolute;
+  width:150px;
+  height:150px;
+  top:350px;
+  border:none;
+  outline: none;
+  background: none;
+}
+#start {
+  width:150px
+}
+#titleDiv {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
