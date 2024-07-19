@@ -9,6 +9,7 @@ let topping = document.createElement('img')
 let topping2 = document.createElement('img')
 let text = 'one';
 let text2 = 'How many pancakes?';
+let textNext = 'next';
 let screen = 1;
 let pancakeCounter=0;
 let toppingCounter=0;
@@ -24,6 +25,8 @@ function start() {
   textElement.innerText = text;
   topText.style.visibility = "visible";
   topText.innerText = text2;
+  next.style.visibility = "visible";
+  next.innerText = textNext;
   pancake.src = './assets/pancake.PNG';
   pancake.classList.add('pancake')
   pancake.style.width='700px';
@@ -94,48 +97,54 @@ function renderTopping2() {
   if (topping2Counter == 0) {
     text = 'none';
     textElement.innerText = text;
-    topping2.src = './assets/toppingMain/whippedCream.PNG'
+    document.getElementById("topping2").style.visibility = "hidden";
   }
   if (topping2Counter==1) {
+    text = 'butter';
+    textElement.innerText = text;
+    topping2.src = './assets/toppingMain/butter.PNG'
+    document.getElementById("topping2").style.visibility = "visible";
+  }
+  if (topping2Counter==2) {
     text = 'strawberry';
     textElement.innerText = text;
     topping2.src = './assets/toppingMain/strawberry.PNG'
   }
-  if (topping2Counter==2) {
+  if (topping2Counter==3) {
     text = 'blueberry';
     textElement.innerText = text;
      topping2.src = './assets/toppingMain/blueberry.PNG'
   }
-  if (topping2Counter==3) {
+  if (topping2Counter==4) {
     text = 'banana';
     textElement.innerText = text;
      topping2.src = './assets/toppingMain/banana.PNG'
   }
-  if (topping2Counter==4) {
-    console.log('toppingwhipepdcream')
+  if (topping2Counter==5) {
     text = 'whipped cream';
     textElement.innerText = text;
      topping2.src = './assets/toppingMain/whippedCream.PNG'
   }
-  if (topping2Counter==5) {
+  if (topping2Counter==6) {
     text = 'vanilla icecream';
     textElement.innerText = text;
     topping2.src = './assets/toppingMain/vanilla.PNG'
   }
-  if (topping2Counter==6) {
+  if (topping2Counter==7) {
     text = 'strawberry icecream';
     textElement.innerText = text;
      topping2.src = './assets/toppingMain/strawberryIce.PNG'
   }
-  if (topping2Counter==7) {
+  if (topping2Counter==8) {
     text = 'chocolate icecream';
     textElement.innerText = text;
      topping2.src = './assets/toppingMain/choc.PNG'
   }
-  if (topping2Counter==8) {
+  if (topping2Counter==9) {
     text = 'mint icecream';
     textElement.innerText = text;
      topping2.src = './assets/toppingMain/mintChoc.PNG'
+     document.getElementById("topping2").style.visibility = "visible";
   }
   }
 startButton.addEventListener("click",function(){
@@ -162,7 +171,7 @@ left.addEventListener("click",function(){
   }
   else if (screen==3){
     if (topping2Counter<1) {
-      topping2Counter=8
+      topping2Counter=9
     }
     else {
      topping2Counter --
@@ -190,8 +199,7 @@ right.addEventListener("click",function () {
     renderTopping()
   }
   else if (screen==3){
-    console.log ('test')
-    if (topping2Counter>7) {
+    if (topping2Counter>8) {
       topping2Counter=0
     }
     else {
@@ -201,6 +209,7 @@ right.addEventListener("click",function () {
   }
 })
 next.addEventListener("click", function() {
+if (screen<4) {
   if (screen==1) {
   text2 = "Choose a topping";
   topText.innerText = text2;
@@ -214,7 +223,6 @@ next.addEventListener("click", function() {
   document.getElementById("topping").style.visibility = "hidden";
 }
 if (screen==2) {
-  console.log('screen2')
   text2 = "Choose a second topping";
   topText.innerText = text2;
   text="none"
@@ -224,7 +232,7 @@ if (screen==2) {
   topping2.classList.add('topping')
   topping2.style.width='700px';
   document.body.appendChild(topping2);
-  //document.getElementById("topping2").style.visibility = "hidden";
+  document.getElementById("topping2").style.visibility = "hidden";
 }
 if (screen==3) {
   text2 = "Choose a side";
@@ -237,7 +245,15 @@ if (screen==3) {
   //topping3.style.width='700px';
   //document.body.appendChild(topping3);
   //document.getElementById("topping3").style.visibility = "hidden";
+  textNext = "finish!"
+  next.innerText = textNext;
 }
 screen ++
+}
+else {
+  text2 = "c o m p l e t e !";
+  topText.classList.add('font')
+  topText.innerText = text2;
+}
 })
-//start()
+start()

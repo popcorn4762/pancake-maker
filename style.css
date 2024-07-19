@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
 body {
-  background-color: rgb(143, 150, 175);
+  background-color: rgb(120, 128, 156);
 }
 #title {
   position:absolute;
@@ -35,12 +39,13 @@ body {
   gap:30px;
 }
 .button {
-  width: 50px;
-  height: 40px;
+  display: inline-block;
   position:relative;
   top:500px;
   visibility: hidden;
   z-index: 10;
+  padding: 15px;
+  text-align: center;
 }
 #everythingDiv {
   display: flex;
@@ -48,20 +53,24 @@ body {
   align-items:center;
 }
 *{
-  font-family: "poppins";
+  font-family: "Architects Daughter";
 }
 #topText{
   visibility: hidden;
   position :absolute;
   color: rgb(46, 55, 80);
   top: 25px;
+  font-family: "Indie Flower";
 }
 #next{
-  z-index: 1;
+  z-index: 6;
 }
 .topping {
   inset: 0;
   margin:auto;
   position: absolute;
   z-index:2;
+}
+.font{
+  font-family: "Architects Daughter";
 }
