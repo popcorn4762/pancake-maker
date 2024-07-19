@@ -6,11 +6,13 @@ let textElement = document.getElementById("text")
 let topText = document.getElementById("topText")
 let pancake = document.createElement('img')
 let topping = document.createElement('img')
+let topping2 = document.createElement('img')
 let text = 'one';
 let text2 = 'How many pancakes?';
 let screen = 1;
 let pancakeCounter=0;
 let toppingCounter=0;
+let topping2Counter=0;
 function start() {
   document.getElementById("title").style.visibility = "hidden";
   document.getElementById("startButton").style.visibility = "hidden";
@@ -43,6 +45,16 @@ if (pancakeCounter==2) {
   textElement.innerText = text;
    pancake.src = './assets/pancake3.PNG'
 }
+if (pancakeCounter==3) {
+  text = 'four';
+  textElement.innerText = text;
+   pancake.src = './assets/pancake4.PNG'
+}
+if (pancakeCounter==4) {
+  text = 'five';
+  textElement.innerText = text;
+   pancake.src = './assets/pancake5.PNG'
+}
 }
 function renderTopping() {
   if (toppingCounter==0) {
@@ -61,6 +73,12 @@ function renderTopping() {
     if (pancakeCounter==2) {
       topping.src = './assets/syrup/syrup3.PNG'
     }
+    if (pancakeCounter==3) {
+      topping.src = './assets/syrup/syrup4.PNG'
+    }
+    if (pancakeCounter==4) {
+      topping.src = './assets/syrup/syrup5.PNG'
+    }
     text = 'maple syrup';
     textElement.innerText = text;
   }
@@ -69,15 +87,64 @@ function renderTopping() {
     text = 'nutella';
     textElement.innerText = text;
     topping.src = './assets/syrup/nutella.PNG'
+    //pancake.style.top='700px';
   }
 }
+function renderTopping2() {
+  if (topping2Counter == 0) {
+    text = 'none';
+    textElement.innerText = text;
+    topping2.src = './assets/toppingMain/whippedCream.PNG'
+  }
+  if (topping2Counter==1) {
+    text = 'strawberry';
+    textElement.innerText = text;
+    topping2.src = './assets/toppingMain/strawberry.PNG'
+  }
+  if (topping2Counter==2) {
+    text = 'blueberry';
+    textElement.innerText = text;
+     topping2.src = './assets/toppingMain/blueberry.PNG'
+  }
+  if (topping2Counter==3) {
+    text = 'banana';
+    textElement.innerText = text;
+     topping2.src = './assets/toppingMain/banana.PNG'
+  }
+  if (topping2Counter==4) {
+    console.log('toppingwhipepdcream')
+    text = 'whipped cream';
+    textElement.innerText = text;
+     topping2.src = './assets/toppingMain/whippedCream.PNG'
+  }
+  if (topping2Counter==5) {
+    text = 'vanilla icecream';
+    textElement.innerText = text;
+    topping2.src = './assets/toppingMain/vanilla.PNG'
+  }
+  if (topping2Counter==6) {
+    text = 'strawberry icecream';
+    textElement.innerText = text;
+     topping2.src = './assets/toppingMain/strawberryIce.PNG'
+  }
+  if (topping2Counter==7) {
+    text = 'chocolate icecream';
+    textElement.innerText = text;
+     topping2.src = './assets/toppingMain/choc.PNG'
+  }
+  if (topping2Counter==8) {
+    text = 'mint icecream';
+    textElement.innerText = text;
+     topping2.src = './assets/toppingMain/mintChoc.PNG'
+  }
+  }
 startButton.addEventListener("click",function(){
 start()
 })
 left.addEventListener("click",function(){
   if (screen==1){
     if (pancakeCounter<1) {
-      pancakeCounter=2
+      pancakeCounter=4
     }
     else {
      pancakeCounter --
@@ -93,10 +160,19 @@ left.addEventListener("click",function(){
     }
     renderTopping()
   }
+  else if (screen==3){
+    if (topping2Counter<1) {
+      topping2Counter=8
+    }
+    else {
+     topping2Counter --
+    }
+    renderTopping2()
+  }
 })
 right.addEventListener("click",function () {
   if (screen==1){
-   if (pancakeCounter>1) {
+   if (pancakeCounter>3) {
      pancakeCounter=0
    }
    else {
@@ -105,7 +181,6 @@ right.addEventListener("click",function () {
     renderPancake()
   }
   else if (screen==2){
-    console.log ('test')
     if (toppingCounter>1) {
       toppingCounter=0
     }
@@ -113,6 +188,16 @@ right.addEventListener("click",function () {
      toppingCounter ++
     }
     renderTopping()
+  }
+  else if (screen==3){
+    console.log ('test')
+    if (topping2Counter>7) {
+      topping2Counter=0
+    }
+    else {
+     topping2Counter ++
+    }
+    renderTopping2()
   }
 })
 next.addEventListener("click", function() {
@@ -127,6 +212,31 @@ next.addEventListener("click", function() {
   topping.style.width='700px';
   document.body.appendChild(topping);
   document.getElementById("topping").style.visibility = "hidden";
+}
+if (screen==2) {
+  console.log('screen2')
+  text2 = "Choose a second topping";
+  topText.innerText = text2;
+  text="none"
+  textElement.innerText = text;
+  topping2.src = './assets/toppingMain/strawberry.PNG';
+  topping2.setAttribute("id", "topping2")
+  topping2.classList.add('topping')
+  topping2.style.width='700px';
+  document.body.appendChild(topping2);
+  //document.getElementById("topping2").style.visibility = "hidden";
+}
+if (screen==3) {
+  text2 = "Choose a side";
+  topText.innerText = text2;
+  text="none"
+  textElement.innerText = text;
+ //topping3.src = './assets/toppingMain/strawberry.PNG';
+  //topping3.setAttribute("id", "topping3")
+  //topping3.classList.add('topping')
+  //topping3.style.width='700px';
+  //document.body.appendChild(topping3);
+  //document.getElementById("topping3").style.visibility = "hidden";
 }
 screen ++
 })
