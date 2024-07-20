@@ -59,8 +59,21 @@ body {
   font-size: 15px;
   transition: background-color 0.3s;
 }
+.textButton {
+  position:relative;
+  top:500px;
+  visibility: hidden;
+  z-index: 10;
+  padding: 15px;
+  border: 0px;
+  text-align: center;
+  border-radius: 8px;
+  color: rgb(46, 55, 80);
+  background-color: rgb(195, 199, 203);
+  font-size: 15px;
+}
 .button:hover {
-  background-color: rgb(149, 154, 181);
+  background-color: rgb(172, 176, 200);
 }
 #everythingDiv {
   display: flex;

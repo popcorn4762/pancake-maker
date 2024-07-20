@@ -10,7 +10,7 @@ let topping2 = document.createElement('img')
 let topping3 = document.createElement('img')
 let toppingDiv = document.createElement('div');
 let text = 'one';
-let text2 = 'How many pancakes?';
+let text2 = 'how many pancakes?';
 let textNext = 'next';
 let screen = 1;
 let pancakeCounter=0;
@@ -97,6 +97,13 @@ function renderTopping() {
     textElement.innerText = text;
     topping.style.bottom= `${pancakeCounter * 68}px`;
     topping.src = './assets/syrup/nutella.PNG'
+  }
+  if (toppingCounter==3) {
+    document.getElementById("topping").style.visibility = "visible";
+    text = 'strawberry jam';
+    textElement.innerText = text;
+    topping.style.bottom= `${pancakeCounter * 68}px`;
+    topping.src = './assets/syrup/jam.PNG'
   }
 }
 function renderTopping2() {
@@ -198,8 +205,8 @@ left.addEventListener("click",function(){
     renderPancake()
   }
   else if (screen==2){
-    if (toppingCounter<1) {
-      toppingCounter=2
+    if (toppingCounter<2) {
+      toppingCounter=3
     }
     else {
      toppingCounter --
@@ -236,7 +243,7 @@ right.addEventListener("click",function () {
     renderPancake()
   }
   else if (screen==2){
-    if (toppingCounter>1) {
+    if (toppingCounter>2) {
       toppingCounter=0
     }
     else {
@@ -254,7 +261,7 @@ right.addEventListener("click",function () {
     renderTopping2()
   }
   else if (screen==4){
-    if (topping3Counter>2) {
+    if (topping3Counter>3) {
       topping3Counter=0
     }
     else {
@@ -266,7 +273,7 @@ right.addEventListener("click",function () {
 next.addEventListener("click", function() {
 if (screen<4) {
   if (screen==1) {
-  text2 = "Choose a topping";
+  text2 = "choose a topping";
   topText.innerText = text2;
   text="none"
   textElement.innerText = text;
@@ -280,7 +287,7 @@ if (screen<4) {
   document.getElementById("topping").style.visibility = "hidden";
 }
 if (screen==2) {
-  text2 = "Choose a second topping";
+  text2 = "choose a second topping";
   topText.innerText = text2;
   text="none"
   textElement.innerText = text;
@@ -294,7 +301,7 @@ if (screen==2) {
   topping2.style.bottom= `${pancakeCounter * 68}px`;
 }
 if (screen==3) {
-  text2 = "Choose a side";
+  text2 = "choose a side";
   topText.innerText = text2;
   text="none"
   textElement.innerText = text;
