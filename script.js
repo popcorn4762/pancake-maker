@@ -7,6 +7,7 @@ let topText = document.getElementById("topText")
 let pancake = document.createElement('img')
 let topping = document.createElement('img')
 let topping2 = document.createElement('img')
+let toppingDiv = document.createElement('div');
 let text = 'one';
 let text2 = 'How many pancakes?';
 let textNext = 'next';
@@ -219,6 +220,9 @@ if (screen<4) {
   topping.setAttribute("id", "topping")
   topping.classList.add('topping')
   topping.style.width='700px';
+  topping.style.top='100px';
+  toppingDiv.appendChild(topping);
+  document.body.appendChild(toppingDiv)
   document.body.appendChild(topping);
   document.getElementById("topping").style.visibility = "hidden";
 }
@@ -231,7 +235,8 @@ if (screen==2) {
   topping2.setAttribute("id", "topping2")
   topping2.classList.add('topping')
   topping2.style.width='700px';
-  document.body.appendChild(topping2);
+  toppingDiv.appendChild(topping2);
+  document.body.appendChild(toppingDiv)
   document.getElementById("topping2").style.visibility = "hidden";
 }
 if (screen==3) {
@@ -256,4 +261,4 @@ else {
   topText.innerText = text2;
 }
 })
-start()
+//start()
