@@ -68,6 +68,7 @@ function renderTopping() {
   }
   if (toppingCounter == 1) {
     document.getElementById("topping").style.visibility = "visible";
+    topping.style.bottom='0px';
     if (pancakeCounter==0) {
     topping.src = './assets/syrup/syrup1.PNG'
     }
@@ -90,8 +91,8 @@ function renderTopping() {
     document.getElementById("topping").style.visibility = "visible";
     text = 'nutella';
     textElement.innerText = text;
+    topping.style.bottom= `${pancakeCounter * 70}px`;
     topping.src = './assets/syrup/nutella.PNG'
-    //pancake.style.top='700px';
   }
 }
 function renderTopping2() {
@@ -220,7 +221,6 @@ if (screen<4) {
   topping.setAttribute("id", "topping")
   topping.classList.add('topping')
   topping.style.width='700px';
-  topping.style.top='100px';
   toppingDiv.appendChild(topping);
   document.body.appendChild(toppingDiv)
   document.body.appendChild(topping);
@@ -238,6 +238,7 @@ if (screen==2) {
   toppingDiv.appendChild(topping2);
   document.body.appendChild(toppingDiv)
   document.getElementById("topping2").style.visibility = "hidden";
+  topping2.style.bottom= `${pancakeCounter * 70}px`;
 }
 if (screen==3) {
   text2 = "Choose a side";

@@ -39,7 +39,6 @@ body {
   gap:30px;
 }
 .button {
-  display: inline-block;
   position:relative;
   top:500px;
   visibility: hidden;
@@ -73,4 +72,7 @@ body {
 }
 .font{
   font-family: "Architects Daughter";
+}
+#text{
+  width:125px;
 }
