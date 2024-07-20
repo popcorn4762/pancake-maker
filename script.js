@@ -8,15 +8,20 @@ let pancake = document.createElement('img')
 let topping = document.createElement('img')
 let topping2 = document.createElement('img')
 let topping3 = document.createElement('img')
+let sparkleButton = document.createElement('button')
 let toppingDiv = document.createElement('div');
-let text = 'one';
-let text2 = 'how many pancakes?';
+let plate = document.createElement('img')
+let sparkle = document.createElement('img')
+let text = 'white';
+let text2 = 'choose a plate';
 let textNext = 'next';
 let screen = 1;
 let pancakeCounter=0;
 let toppingCounter=0;
 let topping3Counter=0;
 let topping2Counter=0;
+let sparkleCounter=0;
+let plateCounter=0;
 function start() {
   screenAnimation()
   setTimeout(() => { document.getElementById("title").style.visibility = "hidden";
@@ -31,10 +36,11 @@ function start() {
   topText.innerText = text2;
   next.style.visibility = "visible";
   next.innerText = textNext;
-  pancake.src = './assets/pancake.PNG';
-  pancake.classList.add('pancake')
-  pancake.style.width='700px';
-  document.body.appendChild(pancake);
+  plate.src = './assets/plates/white.PNG';
+  plate.setAttribute("id", "plate")
+  plate.classList.add('topping')
+  plate.style.width='700px';
+  document.body.appendChild(plate);
 }, 200);
 }
 function renderPancake() {
@@ -185,6 +191,51 @@ function renderTopping3() {
     }
    
   }
+  function renderPlate() {
+    if (plateCounter == 0) {
+      text = 'white';
+      textElement.innerText = text;
+      plate.src = './assets/plates/white.PNG'
+    }
+    if (plateCounter==1) {
+      text = 'blue';
+      textElement.innerText = text;
+      plate.src = './assets/plates/blue.PNG'
+    }
+    if (plateCounter==2) {
+      text = 'pink';
+      textElement.innerText = text;
+      plate.src = './assets/plates/pink.PNG'
+    }
+    if (plateCounter==3) {
+      text = 'yellow';
+      textElement.innerText = text;
+       plate.src = './assets/plates/yellow.PNG'
+    }
+    if (plateCounter==4) {
+      text = 'green';
+      textElement.innerText = text;
+       plate.src = './assets/plates/green.PNG'
+    }
+    if (plateCounter==5) {
+      text = 'purple';
+      textElement.innerText = text;
+       plate.src = './assets/plates/purple.PNG'
+    }
+  }
+  function renderSparkle() {
+    if (sparkleCounter == 0) {
+      document.getElementById("sparkle").style.visibility= "hidden";
+    }
+    if (sparkleCounter==1) {
+      sparkle.src = './assets/sparkle.PNG'
+      document.getElementById("sparkle").style.visibility= "visible";
+    }
+    if (sparkleCounter==2) {
+      sparkle.src = './assets/EXTRASPARKLE!!!!.PNG'
+      document.getElementById("sparkle").style.visibility= "visible";
+    }
+  }
 function screenAnimation() {
   document.getElementById("screen").style.visibility = "visible";
   document.getElementById("screen").style.opacity= 1;
@@ -196,6 +247,15 @@ start()
 })
 left.addEventListener("click",function(){
   if (screen==1){
+    if (plateCounter<1) {
+      plateCounter=5
+    }
+    else {
+      plateCounter --
+    }
+    renderPlate()
+  }
+  if (screen==2){
     if (pancakeCounter<1) {
       pancakeCounter=4
     }
@@ -204,7 +264,7 @@ left.addEventListener("click",function(){
     }
     renderPancake()
   }
-  else if (screen==2){
+  else if (screen==3){
     if (toppingCounter<2) {
       toppingCounter=3
     }
@@ -213,7 +273,7 @@ left.addEventListener("click",function(){
     }
     renderTopping()
   }
-  else if (screen==3){
+  else if (screen==4){
     if (topping2Counter<1) {
       topping2Counter=9
     }
@@ -222,7 +282,7 @@ left.addEventListener("click",function(){
     }
     renderTopping2()
   }
-  else if (screen==4){
+  else if (screen==5){
     if (topping3Counter<1) {
       topping3Counter=3
     }
@@ -234,6 +294,15 @@ left.addEventListener("click",function(){
 })
 right.addEventListener("click",function () {
   if (screen==1){
+    if (plateCounter>4) {
+      plateCounter=0
+    }
+    else {
+      plateCounter ++
+    }
+    renderPlate()
+  }
+  if (screen==2){
    if (pancakeCounter>3) {
      pancakeCounter=0
    }
@@ -242,7 +311,7 @@ right.addEventListener("click",function () {
     }
     renderPancake()
   }
-  else if (screen==2){
+  else if (screen==3){
     if (toppingCounter>2) {
       toppingCounter=0
     }
@@ -251,7 +320,7 @@ right.addEventListener("click",function () {
     }
     renderTopping()
   }
-  else if (screen==3){
+  else if (screen==4){
     if (topping2Counter>8) {
       topping2Counter=0
     }
@@ -260,7 +329,7 @@ right.addEventListener("click",function () {
     }
     renderTopping2()
   }
-  else if (screen==4){
+  else if (screen==5){
     if (topping3Counter>3) {
       topping3Counter=0
     }
@@ -270,9 +339,28 @@ right.addEventListener("click",function () {
     renderTopping3()
   }
 })
+sparkleButton.addEventListener("click",function () {
+  if (sparkleCounter>1) {
+    sparkleCounter=0
+  }
+  else {
+   sparkleCounter ++
+  }
+  renderSparkle()
+})
 next.addEventListener("click", function() {
-if (screen<4) {
-  if (screen==1) {
+if (screen<5) {
+  if(screen==1){
+    text2 = "how many pancakes?";
+  topText.innerText = text2;
+  text="none"
+  textElement.innerText = text;
+  pancake.src = './assets/pancake.PNG';
+  pancake.classList.add('pancake')
+  pancake.style.width='700px';
+  document.body.appendChild(pancake);
+  }
+  if (screen==2) {
   text2 = "choose a topping";
   topText.innerText = text2;
   text="none"
@@ -286,7 +374,7 @@ if (screen<4) {
   document.body.appendChild(topping);
   document.getElementById("topping").style.visibility = "hidden";
 }
-if (screen==2) {
+if (screen==3) {
   text2 = "choose a second topping";
   topText.innerText = text2;
   text="none"
@@ -300,7 +388,7 @@ if (screen==2) {
   document.getElementById("topping2").style.visibility = "hidden";
   topping2.style.bottom= `${pancakeCounter * 68}px`;
 }
-if (screen==3) {
+if (screen==4) {
   text2 = "choose a side";
   topText.innerText = text2;
   text="none"
@@ -326,6 +414,15 @@ else {
   document.getElementById("text").style.visibility = "hidden";
   document.getElementById("right").style.visibility = "hidden";
   document.getElementById("next").style.visibility = "hidden";
+  sparkle.src = './assets/EXTRASPARKLE!!!!.PNG';
+  sparkle.setAttribute("id", "sparkle")
+  sparkle.classList.add('topping')
+  sparkle.style.width='700px';
+  document.body.appendChild(sparkle);
+  sparkleButton.textContent = "change sparkle"
+  sparkleButton.classList.add('sparkleButton')
+  document.body.appendChild(sparkleButton);
+  document.getElementById("sparkle").style.visibility = "hidden";
   }, 250)
 }
 })
