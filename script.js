@@ -46,29 +46,25 @@ function start() {
 function renderPancake() {
 if (pancakeCounter == 0) {
   text = 'one';
-  textElement.innerText = text;
   pancake.src = './assets/pancake.PNG'
 }
 if (pancakeCounter==1) {
   text = 'two';
-  textElement.innerText = text;
   pancake.src = './assets/pancake2.PNG'
 }
 if (pancakeCounter==2) {
   text = 'three';
-  textElement.innerText = text;
    pancake.src = './assets/pancake3.PNG'
 }
 if (pancakeCounter==3) {
   text = 'four';
-  textElement.innerText = text;
    pancake.src = './assets/pancake4.PNG'
 }
 if (pancakeCounter==4) {
   text = 'five';
-  textElement.innerText = text;
    pancake.src = './assets/pancake5.PNG'
 }
+textElement.innerText = text;
 }
 function renderTopping() {
   if (toppingCounter==0) {
@@ -115,115 +111,97 @@ function renderTopping() {
 function renderTopping2() {
   if (topping2Counter == 0) {
     text = 'none';
-    textElement.innerText = text;
     document.getElementById("topping2").style.visibility = "hidden";
   }
   if (topping2Counter==1) {
     text = 'butter';
-    textElement.innerText = text;
     topping2.src = './assets/toppingMain/butter.PNG'
     document.getElementById("topping2").style.visibility = "visible";
   }
   if (topping2Counter==2) {
     text = 'strawberry';
-    textElement.innerText = text;
     topping2.src = './assets/toppingMain/strawberry.PNG'
   }
   if (topping2Counter==3) {
     text = 'blueberry';
-    textElement.innerText = text;
      topping2.src = './assets/toppingMain/blueberry.PNG'
   }
   if (topping2Counter==4) {
     text = 'banana';
-    textElement.innerText = text;
      topping2.src = './assets/toppingMain/banana.PNG'
   }
   if (topping2Counter==5) {
     text = 'whipped cream';
-    textElement.innerText = text;
      topping2.src = './assets/toppingMain/whippedCream.PNG'
   }
   if (topping2Counter==6) {
     text = 'vanilla icecream';
-    textElement.innerText = text;
     topping2.src = './assets/toppingMain/vanilla.PNG'
   }
   if (topping2Counter==7) {
     text = 'strawberry icecream';
-    textElement.innerText = text;
      topping2.src = './assets/toppingMain/strawberryIce.PNG'
   }
   if (topping2Counter==8) {
     text = 'chocolate icecream';
-    textElement.innerText = text;
      topping2.src = './assets/toppingMain/choc.PNG'
   }
   if (topping2Counter==9) {
     text = 'mint icecream';
-    textElement.innerText = text;
      topping2.src = './assets/toppingMain/mintChoc.PNG'
      document.getElementById("topping2").style.visibility = "visible";
   }
+  textElement.innerText = text;
   }
 function renderTopping3() {
     if (topping3Counter == 0) {
       text = 'none';
-      textElement.innerText = text;
       document.getElementById("topping3").style.visibility = "hidden";
     }
     if (topping3Counter==1) {
       text = 'strawberry';
-      textElement.innerText = text;
       topping3.src = './assets/toppingSide/strawberry.PNG'
       document.getElementById("topping3").style.visibility = "visible";
     }
     if (topping3Counter==2) {
       text = 'blueberry';
-      textElement.innerText = text;
       topping3.src = './assets/toppingSide/blueberry.PNG'
     }
     if (topping3Counter==3) {
       text = 'banana';
-      textElement.innerText = text;
        topping3.src = './assets/toppingSide/banana.PNG'
        document.getElementById("topping3").style.visibility = "visible";
     }
-   
+    textElement.innerText = text;
   }
-  function renderPlate() {
+function renderPlate() {
     if (plateCounter == 0) {
       text = 'white';
-      textElement.innerText = text;
       plate.src = './assets/plates/white.PNG'
     }
     if (plateCounter==1) {
       text = 'blue';
-      textElement.innerText = text;
       plate.src = './assets/plates/blue.PNG'
     }
     if (plateCounter==2) {
       text = 'pink';
-      textElement.innerText = text;
       plate.src = './assets/plates/pink.PNG'
     }
     if (plateCounter==3) {
       text = 'yellow';
-      textElement.innerText = text;
        plate.src = './assets/plates/yellow.PNG'
     }
     if (plateCounter==4) {
       text = 'green';
-      textElement.innerText = text;
        plate.src = './assets/plates/green.PNG'
     }
     if (plateCounter==5) {
       text = 'purple';
-      textElement.innerText = text;
        plate.src = './assets/plates/purple.PNG'
     }
+    textElement.innerText = text;
   }
-  function renderSparkle() {
+function renderSparkle() {
     if (sparkleCounter == 0) {
       document.getElementById("sparkle").style.visibility= "hidden";
     }
